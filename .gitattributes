@@ -1,0 +1,9 @@
+# Keep the working copy LF on every platform: the plugin is built on Windows but the
+# bundle is read by the host, and the sibling theme repo already normalises this way.
+* text=auto eol=lf
+
+# Binaries stay binary.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary

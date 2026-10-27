@@ -1,0 +1,99 @@
+{
+  "name": "dsh-caption-bar",
+  "version": "0.2.0",
+  "description": "Moves DeepSeek Harness view tabs onto the Windows caption row and stacks header utilities in a compact right rail, with a centred session title, fullscreen control and transient background-status bubbles.",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "types": "./lib/client/index.d.ts",
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "tools",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "assets",
+    "README.zh.md",
+    "screenshots.json"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ],
+      "platform": "web"
+    }
+  },
+  "license": "MIT",
+  "author": "dsh-caption-bar contributors",
+  "keywords": [
+    "deepseek-harness",
+    "deepseek-harness-desktop",
+    "dsh",
+    "dsh-plugin",
+    "desktop",
+    "caption-bar",
+    "title-bar",
+    "window-chrome",
+    "right-rail",
+    "compact-ui",
+    "windows-titlebar"
+  ],
+  "engines": {
+    "node": ">=18",
+    "dsh": ">=0.2.1-rc.3 <0.3.0"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "types": "tsc -p tsconfig.types.json",
+    "test": "node test/client.smoke.mjs",
+    "dev": "node build.mjs && node test/client.smoke.mjs",
+    "prepack": "node build.mjs && tsc -p tsconfig.types.json && node test/client.smoke.mjs",
+    "compat": "node tools/compat.mjs"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "@deepseek-ai/dsh-client-ui-conversation": ">=0.2.1-rc.3 <0.3.0",
+    "@deepseek-ai/dsh-client-ui-slots": ">=0.2.1-rc.3 <0.3.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-client-ui-conversation": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-slots": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@swc/core": "^1.10.0",
+    "@types/node": "^24.13.3",
+    "@types/react": "^18.3.31",
+    "react": "^18.3.1",
+    "typescript": "^5.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FAVKTOXIC/dsh-caption-bar.git"
+  },
+  "homepage": "https://github.com/FAVKTOXIC/dsh-caption-bar#readme",
+  "bugs": {
+    "url": "https://github.com/FAVKTOXIC/dsh-caption-bar/issues"
+  }
+}

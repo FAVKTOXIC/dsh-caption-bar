@@ -1,0 +1,5 @@
+# pnpm 11 records build-script approvals here (its new home for the old
+# `pnpm.onlyBuiltDependencies` setting). @swc/core ships a native binding; without
+# the approval `pnpm install` exits 1 with ERR_PNPM_IGNORED_BUILDS.
+allowBuilds:
+  '@swc/core': true
